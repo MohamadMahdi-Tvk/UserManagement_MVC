@@ -1,0 +1,19 @@
+﻿@using MyProject.DataAccess.ViewModels.Users.Queries.GetUser
+@model GetUserByIdResponse
+
+@{
+    ViewData["Title"] = "اطلاعات کاربر";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <td>نام</td>
+        <td>نام خانوادگی</td>
+    </tr>
+
+    <tr>
+        <td>@Model.FirstName</td>
+        <td>@Model.LastName</td>
+    </tr>
+</table>
+

@@ -1,0 +1,22 @@
+﻿@using MyProject.DataAccess.ViewModels.Users.Commands.CreateUser
+@model CreateUserRequest
+@{
+    ViewData["Title"] = "افزودن کاربر";
+}
+
+
+<form asp-controller="Users" asp-action="Create">
+
+    <label asp-for="FirstName"></label>
+    <input type="text" asp-for="FirstName" class="form-control" />
+
+
+    <label asp-for="LastName"></label>
+    <input type="text" asp-for="LastName" class="form-control" />
+
+    <input type="submit" class="btn btn-success m-2" value="افزودن کاربر" />
+
+</form>
+
+
+
