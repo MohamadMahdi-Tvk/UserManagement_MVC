@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MyProject.DataAccess.Entities;
 using MyProject.DataAccess.ViewModels.Users.Commands.CreateUser;
+using MyProject.DataAccess.ViewModels.Users.Commands.DeleteUser;
+using MyProject.DataAccess.ViewModels.Users.Commands.UpdateUser;
 using MyProject.DataAccess.ViewModels.Users.Queries.GetUser;
 using MyProject.DataAccess.ViewModels.Users.Queries.GetUsers;
 
@@ -17,6 +19,10 @@ public class MappingProfile : Profile
 
         CreateMap<GetUserByIdRequest,User>().ReverseMap();
         CreateMap<GetUserByIdResponse,User>().ReverseMap();
+
+        CreateMap<UpdateUserRequest, User>().ReverseMap();
+
+        CreateMap<DeleteUserRequest,User>().ReverseMap();
 
 
     }

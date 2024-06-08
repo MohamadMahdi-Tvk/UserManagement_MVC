@@ -9,16 +9,26 @@
     <a class="btn btn-primary m-2" asp-action="Create" asp-controller="Users">افزودن کاربر</a>
     <table class="table table-bordered table-hover">
         <tr>
+            <td>آیدی</td>
             <td>نام</td>
             <td>نام خانوادگی</td>
+            <td>عملیات</td>
         </tr>
 
         @foreach (var user in Model)
         {
             <tr>
+                <td>@user.Id</td>
                 <td>@user.FirstName</td>
                 <td>@user.LastName</td>
+                <td>
+                    <a class="btn btn-warning" asp-action="Update" asp-route-Id="@user.Id">ویرایش</a>
+                    <a class="btn btn-info" asp-action="GetUser" asp-route-Id="@user.Id">جزئیات</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-Id="@user.Id">حذف</a>
+                </td>
+
             </tr>
+
         }
     </table>
 </div>

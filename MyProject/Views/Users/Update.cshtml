@@ -1,0 +1,19 @@
+﻿@using MyProject.DataAccess.ViewModels.Users.Queries.GetUser
+@model GetUserByIdResponse
+
+@{
+    ViewData["Title"] = "ویرایش کاربر";
+}
+
+<form asp-action="Update" asp-controller="Users" method="post">
+
+    <label class="form-label" asp-for="FirstName"></label>
+    <input class="form-control" asp-for="FirstName" placeholder="@Model.FirstName" />
+
+    <label class="form-label" asp-for="LastName"></label>
+    <input class="form-control" asp-for="LastName" placeholder="@Model.LastName" />
+
+    <input type="submit" class="btn btn-success m-2" value="ثبت اطلاعات" />
+     
+</form>
+
