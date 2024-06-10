@@ -7,6 +7,8 @@ namespace MyProject.DataAccess.Context;
 public interface IDataBaseContext
 {
     public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<Users_Roles> Users_Roles { get; set; }
 
 }
 
@@ -15,6 +17,8 @@ public class DataBaseContext : DbContext, IDataBaseContext
     public DataBaseContext(DbContextOptions<DataBaseContext> dbContextOptions) : base(dbContextOptions) { }
 
     public DbSet<User> Users { get; set; }
+    public DbSet<Role> Roles { get; set; }
+    public DbSet<Users_Roles> Users_Roles { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {

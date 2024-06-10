@@ -1,0 +1,23 @@
+﻿@using MyProject.DataAccess.ViewModels.Roles.Queries.GetRoles
+
+@model List<GetRolesResponse>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>آیدی</th>
+        <th>عنوان</th>
+    </tr>
+
+    @foreach (var role in Model)
+    {
+        <tr>
+            <td>@role.Id</td>
+            <td>@role.Title</td>
+        </tr>
+    }
+
+</table>
+

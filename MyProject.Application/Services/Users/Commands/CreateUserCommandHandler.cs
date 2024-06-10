@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
 using MediatR;
 using MyProject.DataAccess.Entities;
-using MyProject.DataAccess.Repositories.UserRepository;
 using MyProject.DataAccess.UnitOfWork;
+using MyProject.DataAccess.ViewModels.Roles.Queries.GetRoles;
 using MyProject.DataAccess.ViewModels.Users.Commands.CreateUser;
+using MyProject.DataAccess.ViewModels.Users.Queries.GetUsers;
 
 namespace MyProject.Application.Services.Users.Commands;
 
@@ -23,7 +24,10 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Creat
         {
             var user = _mapper.Map<CreateUserRequest, User>(request.Command);
 
-            await _unitOfWork.UserRepository.Create(user);
+            var roles = await _unitOfWork.RoleRepository.GetRoles();
+ 
+
+            await _unitOfWork.UserRepository.Create(user, roles);
 
             var response = await _unitOfWork.CommitAsync(cancellationToken);
 

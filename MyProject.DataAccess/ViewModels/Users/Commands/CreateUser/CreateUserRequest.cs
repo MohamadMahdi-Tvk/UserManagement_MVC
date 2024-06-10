@@ -1,3 +1,5 @@
-﻿namespace MyProject.DataAccess.ViewModels.Users.Commands.CreateUser;
+﻿using MyProject.DataAccess.Entities;
 
-public record CreateUserRequest(string FirstName, string LastName);
+namespace MyProject.DataAccess.ViewModels.Users.Commands.CreateUser;
+
+public record CreateUserRequest(string FirstName, string LastName, List<Role> Roles);

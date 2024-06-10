@@ -8,10 +8,9 @@ namespace MyProject.DataAccess.Repositories.UserRepository;
 public interface IUserRepository
 {
     Task<IEnumerable<User>> GetUsers();
-    Task Create(User user);
+    Task Create(User User, List<Role> Roles);
     Task<User> GetUserById(int id);
     Task UpdateUser(User updateUser);
-
     Task DeleteUser(int id);
 }
 
@@ -35,9 +34,24 @@ public class UserRepository : IUserRepository
     }
 
 
-    public async Task Create(User user)
+    //Here !
+    public async Task Create(User User, List<Role> Roles)
     {
-        await _context.Users.AddAsync(user);
+        var newUser = await _context.Users.AddAsync(User);
+
+        foreach (var role in Roles)
+        {
+            await _context.Users_Roles.AddAsync(new Users_Roles
+            {
+                Role = role,
+                RoleId = role.Id,
+
+                User = User,
+                UserId = User.Id
+
+            });
+        }
+
     }
 
     public async Task UpdateUser(User updateUser)

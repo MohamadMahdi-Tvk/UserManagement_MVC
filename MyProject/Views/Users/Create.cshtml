@@ -1,4 +1,5 @@
 ﻿@using MyProject.DataAccess.ViewModels.Users.Commands.CreateUser
+@using MyProject.DataAccess.ViewModels.Users.Queries.GetUsers
 @model CreateUserRequest
 @{
     ViewData["Title"] = "افزودن کاربر";
@@ -13,6 +14,8 @@
 
     <label asp-for="LastName"></label>
     <input type="text" asp-for="LastName" class="form-control" />
+    
+    <select asp-items="@ViewBag.Roles" ></select>
 
     <input type="submit" class="btn btn-success m-2" value="افزودن کاربر" />
 

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using MyProject.Application.ExtentionMethods;
 using MyProject.Application.Services.Users.Queries;
 using MyProject.DataAccess.Context;
+using MyProject.DataAccess.Repositories.RoleRepository;
 using MyProject.DataAccess.Repositories.UserRepository;
 using MyProject.DataAccess.UnitOfWork;
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<DataBaseContext>(options => options.UseSqlServer(b
 builder.Services.AddScoped<IDataBaseContext, DataBaseContext>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IRoleRepository,RoleRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 #region MediatR

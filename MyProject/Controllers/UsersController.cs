@@ -1,8 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using MyProject.Application.Services.Roles.Queries;
 using MyProject.Application.Services.Users.Commands;
 using MyProject.Application.Services.Users.Queries;
 using MyProject.Controllers.Base;
+using MyProject.DataAccess.ViewModels.Roles.Queries.GetRoles;
 using MyProject.DataAccess.ViewModels.Users.Commands.CreateUser;
 using MyProject.DataAccess.ViewModels.Users.Commands.DeleteUser;
 using MyProject.DataAccess.ViewModels.Users.Commands.UpdateUser;
@@ -25,8 +28,9 @@ namespace MyProject.Controllers
 
 
         [HttpGet]
-        public async Task<IActionResult> Create()
+        public async Task<IActionResult> Create(CancellationToken cancellationToken)
         {
+            ViewBag.Roles = new SelectList(await _mediator.Send(new GetRolesQuery(cancellationToken)),"Id", "Title");
             return View();
         }
 

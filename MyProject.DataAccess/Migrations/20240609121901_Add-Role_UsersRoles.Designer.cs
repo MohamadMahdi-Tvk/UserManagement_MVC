@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyProject.DataAccess.Context;
 
@@ -11,9 +12,11 @@ using MyProject.DataAccess.Context;
 namespace MyProject.DataAccess.Migrations
 {
     [DbContext(typeof(DataBaseContext))]
-    partial class DataBaseContextModelSnapshot : ModelSnapshot
+    [Migration("20240609121901_Add-Role_UsersRoles")]
+    partial class AddRole_UsersRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -46,24 +49,6 @@ namespace MyProject.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Roles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            InsertDate = new DateTime(2024, 6, 9, 16, 29, 15, 109, DateTimeKind.Local).AddTicks(8131),
-                            IsDeleted = false,
-                            Title = "Admin",
-                            UpdateTime = new DateTime(2024, 6, 9, 16, 29, 15, 109, DateTimeKind.Local).AddTicks(8141)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            InsertDate = new DateTime(2024, 6, 9, 16, 29, 15, 109, DateTimeKind.Local).AddTicks(8214),
-                            IsDeleted = false,
-                            Title = "Operator",
-                            UpdateTime = new DateTime(2024, 6, 9, 16, 29, 15, 109, DateTimeKind.Local).AddTicks(8215)
-                        });
                 });
 
             modelBuilder.Entity("MyProject.DataAccess.Entities.User", b =>

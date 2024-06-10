@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ViewModels\Roles\Commands\" />
+  </ItemGroup>
+
 </Project>

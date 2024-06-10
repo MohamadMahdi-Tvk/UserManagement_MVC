@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MyProject.DataAccess.Entities;
+using MyProject.DataAccess.ViewModels.Roles.Queries.GetRoles;
 using MyProject.DataAccess.ViewModels.Users.Commands.CreateUser;
 using MyProject.DataAccess.ViewModels.Users.Commands.DeleteUser;
 using MyProject.DataAccess.ViewModels.Users.Commands.UpdateUser;
@@ -12,6 +13,7 @@ public class MappingProfile : Profile
 {
     public MappingProfile()
     {
+        #region User
         CreateMap<GetUsersRequest, User>().ReverseMap();
         CreateMap<GetUsersResponse, User>().ReverseMap();
 
@@ -23,7 +25,13 @@ public class MappingProfile : Profile
         CreateMap<UpdateUserRequest, User>().ReverseMap();
 
         CreateMap<DeleteUserRequest,User>().ReverseMap();
+        #endregion
 
+        #region Role
+
+        CreateMap<GetRolesResponse, Role>().ReverseMap();
+
+        #endregion
 
     }
 
